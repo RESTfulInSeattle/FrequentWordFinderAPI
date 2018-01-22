@@ -177,6 +177,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\URLFetcher.cs" />
+    <Compile Include="Controllers\WordCollector.cs" />
+    <Compile Include="Controllers\WordRanker.cs" />
     <Compile Include="Controllers\WordRankerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
