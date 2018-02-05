@@ -5,7 +5,7 @@ namespace FrequentWordFinderAPI.Controllers
 {
     public class DynamoDbActions
     {
-        public string RetrieveItem(string url)
+        public static string RetrieveItem(string url)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace FrequentWordFinderAPI.Controllers
             }
         }
 
-        public bool AddItem(string url, string result)
+        public static bool AddItem(string url, string result)
         {
             try
             {
