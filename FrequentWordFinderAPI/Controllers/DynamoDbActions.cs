@@ -30,7 +30,7 @@ namespace FrequentWordFinderAPI.Controllers
                 var item = new DynamoDBItem
                 {
                     Id = url,
-                    result = "Fish"
+                    result = result
                 };
 
                 context.Save(item);
