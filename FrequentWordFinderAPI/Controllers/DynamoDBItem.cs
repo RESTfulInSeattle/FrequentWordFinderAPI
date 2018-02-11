@@ -7,8 +7,8 @@ namespace FrequentWordFinderAPI.Controllers
     public class DynamoDBItem
     {
         [DynamoDBHashKey]
-        public string Id { get; set; }
-        [DynamoDBRangeKey]
+        public string url { get; set; }
+        [DynamoDBProperty]
         public string result { get; set; }
     }
 }
