@@ -1,11 +1,13 @@
 ﻿using FrequentWordConsole;
 using System.Collections.Generic;
 using System.Web.Http;
+using WordRankerWorker;
 
 namespace FrequentWordFinderAPI.Controllers
 {
     public class WordRankerController : ApiController
     {
+        private string queueURL = "https://sqs.us-west-2.amazonaws.com/792614619693/Assignment3-Queue";
         public string Get(string url)
         {
             if (url.Length > 0)
@@ -14,10 +16,10 @@ namespace FrequentWordFinderAPI.Controllers
 
                 if (result.Length == 0)
                 {
-                    result = Rank(url);
-                    bool success = DynamoDbActions.AddItem(url, result);
+                    bool success = SQSActions.AddMessage(queueURL, url);
+                    if (!success) return "There was a problem contacting SQS";
 
-                    if (!success) result += "\r\n" + "Error saving result to table";
+                    return "This URL has been queued to be ranked, please check back later.";
                 }
 
                 return result;
